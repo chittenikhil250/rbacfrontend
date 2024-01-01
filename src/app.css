@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.inline{
+    display: inline;
+}
+.card-title, .card-header{
+    text-transform: capitalize;
+}
+.tablecust{
+    width: 100%; 
+    table-layout: fixed; 
+    word-wrap: normal;
+}
+.alert-success{
+    width: 50%;
+    margin-left: 25%;
+}
