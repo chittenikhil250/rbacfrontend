@@ -22,7 +22,7 @@ const ManageRoles = () => {
     const fetchAllUsers = async()=>{
         try {
           const allUsers = await axios.get(
-            'http://localhost:5050/user/admin'
+            'https://rbacwebtwo.onrender.com/user/admin'
             , {
             withCredentials: true,
             headers:{
@@ -53,7 +53,8 @@ const ManageRoles = () => {
     e.preventDefault();
 
     const response = await axios.post(
-      'http://localhost:5050/user/admin/update'
+      'https://rbacwebtwo.onrender.com/user/admin/update'
+      // 'http://localhost:5050/user/admin/update'
       , {
       id: id,
       role: role2 

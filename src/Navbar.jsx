@@ -11,8 +11,8 @@ const Navbar = () => {
 
   const handleLogout = async()=>{
     const response = await axios.get(
-      // 'https://rbacwebtwo.onrender.com/auth/logout'
-      'http://localhost:5050/auth/logout'
+      'https://rbacwebtwo.onrender.com/auth/logout'
+      // 'http://localhost:5050/auth/logout'
       , {
       withCredentials: true,
           headers:{

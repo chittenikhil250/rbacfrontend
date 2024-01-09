@@ -19,8 +19,8 @@ const Login = () => {
       const fetchUsers = async()=>{
         try {
           const response = await axios.get(
-            // 'https://rbacwebtwo.onrender.com/user/profile'
-            'http://localhost:5050/user/profile'
+            'https://rbacwebtwo.onrender.com/user/profile'
+            // 'http://localhost:5050/user/profile'
             , {
             withCredentials: true,
             headers:{
@@ -47,8 +47,8 @@ const Login = () => {
           e.preventDefault();
           const response = await axios.post(
             // 'https://rbacweb.onrender.com/auth/login'
-            // 'https://rbacwebtwo.onrender.com/auth/login'
-            'http://localhost:5050/auth/login'
+            'https://rbacwebtwo.onrender.com/auth/login'
+            // 'http://localhost:5050/auth/login'
             , JSON.stringify({email, password}),{
               withCredentials: true,
               headers: {

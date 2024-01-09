@@ -15,7 +15,7 @@ const Profile = () => {
             try {
             const response = await axios.get(
               // 'https://rbacwebtwo.onrender.com/user/'
-              'http://localhost:5050/user/'
+              'https://rbacwebtwo.onrender.com/user/'
               +id, {
               withCredentials: true,
               headers:{

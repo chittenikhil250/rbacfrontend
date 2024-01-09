@@ -14,8 +14,8 @@ const Signup = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                'http://localhost:5050/auth/signup'
-                // 'https://rbacwebtwo.onrender.com/auth/signup'
+                // 'http://localhost:5050/auth/signup'
+                'https://rbacwebtwo.onrender.com/auth/signup'
                 , {name, email, password, password2});
             if(response.status === 200){
                 Navigate('/login', {state: {message: response.data.message}});

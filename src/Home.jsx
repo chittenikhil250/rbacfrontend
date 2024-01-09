@@ -16,8 +16,8 @@ const Home = () => {
     const fetchUsers = async()=>{
       try {
         const response = await axios.get(
-          // 'https://rbacwebtwo.onrender.com/user/profile'
-          'http://localhost:5050/user/profile'
+          'https://rbacwebtwo.onrender.com/user/profile'
+          // 'http://localhost:5050/user/profile'
           , {
           withCredentials: true,
           headers:{
