@@ -21,7 +21,9 @@ const ManageRoles = () => {
   useEffect(() => {
     const fetchAllUsers = async()=>{
         try {
-          const allUsers = await axios.get('https://rbacwebtwo.onrender.com/user/admin/', {
+          const allUsers = await axios.get(
+            'http://localhost:5050/user/admin'
+            , {
             withCredentials: true,
             headers:{
               'Access-Control-Allow-Origin': '*', 
@@ -50,7 +52,9 @@ const ManageRoles = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
 
-    const response = await axios.post('https://rbacwebtwo.onrender.com/user/admin/update', {
+    const response = await axios.post(
+      'http://localhost:5050/user/admin/update'
+      , {
       id: id,
       role: role2 
     }, {
@@ -76,9 +80,9 @@ const ManageRoles = () => {
         <div className={error ? 'invisible' : 'container'}>
           <center><h1 className='mt-5'>Manage User Roles</h1></center>
           <div className={message?'':'invisible'}>
-            <div class="alert alert-success alert-dismissible fade show error" role="alert">
+            <div className="alert alert-success alert-dismissible fade show error" role="alert">
               {message}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           </div>
 
@@ -105,17 +109,16 @@ const ManageRoles = () => {
                       </Link>
                     </td>
                     <td >{user.email}</td>
-
                             <td >
                                 <input type="hidden" name="id"  value={user._id}/ > 
-                                <select name="role" value={role}  onChange={(e)=>{handleRoleChange(user._id, e.target.value)}} class="accordion" id="role">
-                                    <option class="accordion-item" selected={user.role === 'admin' ? true : false} value="admin">Admin</option>
-                                    <option class="accordion-item" selected={user.role === 'moderator' ? true : false} value="moderator">Moderator </option>
-                                    <option class="accordion-item" selected={user.role === 'member' ? true : false} value="member">Member</option>
+                                <select name="role" value={role}  onChange={(e)=>{handleRoleChange(user._id, e.target.value)}} className="accordion" id="role">
+                                    <option className="accordion-item" selected={user.role === 'admin' ? true : false} value="admin">Admin</option>
+                                    <option className="accordion-item" selected={user.role === 'moderator' ? true : false} value="moderator">Moderator </option>
+                                    <option className="accordion-item" selected={user.role === 'member' ? true : false} value="member">Member</option>
                                 </select>
                             </td>
                                 <td >
-                                    <input type="submit"  class="btn btn-primary px-3" value="Update"/>
+                                    <input type="submit"  className="btn btn-primary px-3" value="Update"/>
                                 </td>
                   </tr>
                   )}

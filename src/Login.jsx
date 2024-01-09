@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useState, useContext, useEffect } from 'react';
 import AuthContext from './Context/AuthProvider';
-import {json, useNavigate} from 'react-router-dom';
+import {json, useLocation, useNavigate} from 'react-router-dom';
 
 
 const Login = () => {
@@ -13,18 +13,22 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] =  useState('');
     const [user, setUser ]= useState(null);
+    const {state} = useLocation();
 
     useEffect(() => {
       const fetchUsers = async()=>{
         try {
-          const response = await axios.get('https://rbacwebtwo.onrender.com/user/profile', {
+          const response = await axios.get(
+            // 'https://rbacwebtwo.onrender.com/user/profile'
+            'http://localhost:5050/user/profile'
+            , {
             withCredentials: true,
             headers:{
               'Access-Control-Allow-Origin': '*', 
               'Content-Type': 'application/json'
             }
           })
-          const user = response.data.user;
+          const user = response.data;
           if(user){
             Navigate('/home')
           }
@@ -43,7 +47,8 @@ const Login = () => {
           e.preventDefault();
           const response = await axios.post(
             // 'https://rbacweb.onrender.com/auth/login'
-            'https://rbacwebtwo.onrender.com/auth/login'
+            // 'https://rbacwebtwo.onrender.com/auth/login'
+            'http://localhost:5050/auth/login'
             , JSON.stringify({email, password}),{
               withCredentials: true,
               headers: {
@@ -52,9 +57,7 @@ const Login = () => {
             },
             })
             setUser(response.data.user);
-            // setAuth(JSON.stringify(response.data.user));
             setAuth(response.data.user);
-            // console.log(user);
             if(response.status === 200){
                 Navigate('/home');
               }
@@ -76,6 +79,12 @@ const Login = () => {
               <div className={error?'':'invisible'}>
             <div class="alert alert-danger alert-dismissible fade show error" role="alert">
               {error ? error.response.data.message : ''}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+              </div>
+              <div className={state ? '': 'invisible'}>
+            <div class="alert alert-success alert-dismissible fade show error" role="alert">
+              {state?.message}
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
               </div>

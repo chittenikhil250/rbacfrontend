@@ -15,23 +15,24 @@ const Home = () => {
   useEffect(() => {
     const fetchUsers = async()=>{
       try {
-        const response = await axios.get('https://rbacwebtwo.onrender.com/user/profile', {
+        const response = await axios.get(
+          // 'https://rbacwebtwo.onrender.com/user/profile'
+          'http://localhost:5050/user/profile'
+          , {
           withCredentials: true,
           headers:{
             'Access-Control-Allow-Origin': '*', 
             'Content-Type': 'application/json'
           }
         })
-        const user = response.data.user;
+        const user = response.data;
         if(user){
           setAuth(user);
         }
       } catch (error) {
         if(error){
-          Navigate('/login')
-          // console.log(error)
+          Navigate('/login');
         }
-        // setError(error);
       }
     }
     fetchUsers();
@@ -54,7 +55,7 @@ const Home = () => {
               <div class="card-body">
                 <h5 class="card-title">{user ? user.name : error}</h5>
                 <p class="card-text">{user ? user.email : error}</p>
-                <p class="card-text">User ID : {user ? user._id : error}</p>
+                <p class="card-text">User ID : {user ? user.id : error}</p>
               </div>
             </div>
           </div>
@@ -65,4 +66,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

@@ -10,7 +10,10 @@ const Navbar = () => {
   const Navigate = useNavigate()
 
   const handleLogout = async()=>{
-    const response = await axios.get('https://rbacwebtwo.onrender.com/auth/logout', {
+    const response = await axios.get(
+      // 'https://rbacwebtwo.onrender.com/auth/logout'
+      'http://localhost:5050/auth/logout'
+      , {
       withCredentials: true,
           headers:{
             'Access-Control-Allow-Origin': '*', 

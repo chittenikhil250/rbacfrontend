@@ -13,7 +13,10 @@ const Profile = () => {
     useEffect(() => {
         const fetchData = async()=>{
             try {
-            const response = await axios.get('https://rbacwebtwo.onrender.com/user/'+id, {
+            const response = await axios.get(
+              // 'https://rbacwebtwo.onrender.com/user/'
+              'http://localhost:5050/user/'
+              +id, {
               withCredentials: true,
               headers:{
                 'Access-Control-Allow-Origin': '*', 
