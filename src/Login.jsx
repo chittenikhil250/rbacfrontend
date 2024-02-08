@@ -75,7 +75,7 @@ const Login = () => {
             <div className="row">
             <center><h1 className='mt-5'>Welcome back!!</h1></center>
             <div className="col-lg-4"></div>
-            <div className="col-lg-4 mt-5">
+            <div className="col-lg-4">
               <div className={error?'':'invisible'}>
             <div class="alert alert-danger alert-dismissible fade show error" role="alert">
               {error ? error.response.data.message : ''}

@@ -30,9 +30,10 @@ const Home = () => {
           setAuth(user);
         }
       } catch (error) {
-        if(error){
-          Navigate('/login');
-        }
+        // if(error){
+        //   Navigate('/login');
+        // }
+        console.error(error);
       }
     }
     fetchUsers();
