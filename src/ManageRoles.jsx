@@ -32,6 +32,7 @@ const ManageRoles = () => {
           })
           const allusersdata = allUsers.data;
           setUsers(allusersdata);
+          console.log(allusersdata);
         }
         catch (error) {
           setError(error);
